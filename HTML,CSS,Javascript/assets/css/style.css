@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+.navbar,.main-header{
+    background-color: #F5F7FA;
+}
+.navbar{
+    width: 100%;
+    height: 84px;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 154px;
+    height: 24px;
+}
+.navbar .container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-menu,.navbar-buttons{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        list-style: none;
+}
+
+.navbar-menu li{
+    color: #18191F;
+    font-weight: 500;
+    line-height: 24px;
+
+}
+.login-btn{
+    color: #4CAF4F;
+    text-decoration: none;
+    width: 77px;
+    height: 40px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 20px;
+}
+.signup-btn{
+    background-color: #4CAF4F;
+    text-decoration: none;
+    color: #fff;
+    width: 91px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+
+}
+
+.main-header .container{
+    width: 80%;
+    margin: auto;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-header-content{
+    width: 55%;
+}
+.main-header-content h1{
+    color: #4D4D4D;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 76px;
+}
+.main-header-content h1 span{
+    color: #4CAF4F;
+}
+.main-header-img{
+    width: 35%;
+}
+.main-header-img img{
+    width: 100%;
+}
+.main-header-text,.clients-subheader{
+    color: #717171;
+    margin-top: 20px;
+}
+.main-header-btn{
+    width: 128px;
+    height: 52px;
+    background-color: #4CAF4F;
+    border-radius: 4px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.clients-section .container{
+    width: 80%;
+    margin: auto;
+    padding: 50px 0;
+    text-align: center;
+}
+.clients-section h2{
+    color: #4D4D4D;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+}
+.clients{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.clients img{
+
+    width: 48px;
+    height: 48px;
+}
+
+.menu-toggle{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-left: 15px;
+    display: none;
+}
+.menu-toggle img{
+    width: 100%;
+    height: 100%;
+    
+}
+@media(max-width:992px){
+    .container{
+        width: 95% !important;
+    }
+    .navbar-menu{
+        display: none;
+    }
+    .menu-toggle{
+        display: inline-block;
+    }
+    .logo{
+        width: 120px;
+        height: 20px;
+    }
+    .login-btn,.signup-btn{
+        font-size: 12px;
+    }
+    .login-btn{
+        width: 60px;
+    }
+    .signup-btn{
+        width: 80px;
+    }
+    .main-header .container{
+
+        flex-direction: column;
+    }
+    .main-header-content,.main-header-img{
+        width: 100%;
+    }
+    .main-header-content h1{
+        font-size: 40px;
+        line-height: 56px;
+    }
+    .main-header-btn{
+        height: 40px;
+        width: 140px;
+    }
+    .main-header-img img{
+        width: 80%;
+    }
+    .main-header-img{
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .clients{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .clients img{
+        width: 80px;
+        height: 80px;
+    }
+}
+.scroll{
+    position: fixed;
+    top: 0;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;;
+}
+.mobile-menu{
+    position: fixed;
+    
+    background-color: #4D4D4D;
+    height: 100%;
+    padding: 20px;
+    left: -100px;
+    z-index: 100;
+    width: 0;
+    transition: all .3s ease-in-out;
+}
+.mobile-menu ul{
+    list-style: none;
+}
+.mobile-menu ul li{
+    width: 100%;
+    color: #fff;
+    padding: 20px 0;
+    font-weight: 500;
+}
+.open-menu{
+    width: 60% !important;
+    left: 0 !important;
+}
+.nav-close{
+    position: absolute;
+    height: 84px;
+    z-index: 0;
+}
+.up-arrow{
+    position: fixed;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: none;
+    right: 30px;
+}
