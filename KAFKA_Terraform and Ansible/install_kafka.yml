@@ -1,0 +1,35 @@
+- hosts: kafka_nodes
+  become: yes
+  tasks:
+    - name: Install Java
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Download Kafka
+      get_url:
+        url: "https://downloads.apache.org/kafka/3.0.0/kafka_2.13-3.0.0.tgz"
+        dest: "/tmp/kafka.tgz"
+
+    - name: Extract Kafka
+      unarchive:
+        src: "/tmp/kafka.tgz"
+        dest: "/opt/"
+        remote_src: yes
+
+    - name: Create Kafka symlink
+      file:
+        src: "/opt/kafka_2.13-3.0.0"
+        dest: "/opt/kafka"
+        state: link
+
+    - name: Configure Kafka
+      template:
+        src: "server.properties.j2"
+        dest: "/opt/kafka/config/server.properties"
+
+    - name: Start Zookeeper
+      shell: "/opt/kafka/bin/zookeeper-server-start.sh -daemon /opt/kafka/config/zookeeper.properties"
+
+    - name: Start Kafka Broker
+      shell: "/opt/kafka/bin/kafka-server-start.sh -daemon /opt/kafka/config/server.properties"

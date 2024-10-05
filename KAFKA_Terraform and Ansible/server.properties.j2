@@ -1,0 +1,48 @@
+# Broker configuration
+broker.id={{ broker_id }}
+# Set the hostname and port the broker advertises to clients
+listeners=PLAINTEXT://{{ kafka_listeners }}
+advertised.listeners=PLAINTEXT://{{ kafka_advertised_listeners }}
+
+# Log Directory Configuration
+log.dirs={{ kafka_log_dirs }}
+
+# Zookeeper configuration
+zookeeper.connect={{ zookeeper_connect }}
+zookeeper.session.timeout.ms=18000
+
+# Replication Configuration
+num.network.threads=3
+num.io.threads=8
+socket.send.buffer.bytes=102400
+socket.receive.buffer.bytes=102400
+socket.request.max.bytes=104857600
+
+# Log Retention Configuration
+log.retention.hours={{ kafka_log_retention_hours | default(168) }}
+log.segment.bytes={{ kafka_log_segment_bytes | default(1073741824) }}
+log.retention.check.interval.ms={{ kafka_log_retention_check_interval | default(300000) }}
+
+# Message Configuration
+message.max.bytes={{ kafka_message_max_bytes | default(1048576) }}
+replica.fetch.max.bytes={{ kafka_replica_fetch_max_bytes | default(1048576) }}
+
+# Auto-Create Topic (not recommended for production environments)
+auto.create.topics.enable={{ kafka_auto_create_topics | default("false") }}
+
+# Metrics Configuration
+metric.reporters=
+metrics.num.samples=2
+metrics.sample.window.ms=30000
+
+# Quotas Configuration
+quota.consumer.default={{ kafka_quota_consumer_default | default(9223372036854775807) }}
+quota.producer.default={{ kafka_quota_producer_default | default(9223372036854775807) }}
+
+# Misc Configuration
+delete.topic.enable={{ kafka_delete_topic_enable | default("true") }}
+default.replication.factor={{ kafka_default_replication_factor | default(3) }}
+min.insync.replicas={{ kafka_min_insync_replicas | default(2) }}
+
+# Log Cleaner Configuration
+log.cleaner.enable={{ kafka_log_cleaner_enable | default("true") }}

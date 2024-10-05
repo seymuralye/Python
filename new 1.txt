@@ -1,0 +1,35 @@
+CREATE TABLE Movie_info (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    released DATE,
+    director VARCHAR(255) NOT NULL,
+    genre VARCHAR(100)
+);
+----------------------------------------------------------------
+version: '3'
+
+services:
+  db:
+    image: mysql
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_DATABASE: mydata
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: "123456"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /opt/adminer/db_data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  db_data:
+-----------------------------------------------------------------------------
